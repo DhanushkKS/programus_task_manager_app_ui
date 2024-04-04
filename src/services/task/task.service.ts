@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environment';
 import { TASK } from '../../paths/paths';
 import { Observable } from 'rxjs';
-import * as url from 'url';
 import CreateTaskDto from '../../Dtos/taskDtos/createTaskDto';
 
 @Injectable({

@@ -1,0 +1,9 @@
+.spacer{
+  flex: 1 1 auto;
+}
+div h1{
+  cursor: pointer;
+}
+div a{
+  cursor: pointer;
+}

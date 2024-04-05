@@ -1,0 +1,27 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.task-form mat-card {
+  width: 50vw;
+  background-color: #fffb;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card mat-card-content {
+  display: flex;
+  flex-direction: column;
+
+}
+mat-card-content h1 {
+  padding-bottom:20px;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #fffb;
+  color: #222222;
+}
+mat-card-footer {
+  margin-top: 8px;
+}

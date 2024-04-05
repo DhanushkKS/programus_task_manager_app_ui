@@ -4,6 +4,7 @@ import { environment } from '../../../environment';
 import { TASK } from '../../paths/paths';
 import { Observable } from 'rxjs';
 import CreateTaskDto from '../../Dtos/taskDtos/createTaskDto';
+import UpdateTaskDto from '../../Dtos/taskDtos/updateTaskDto';
 
 @Injectable({
   providedIn: 'root',
@@ -23,12 +24,23 @@ export class TaskService {
   //create task
   private createTaskService(dto: CreateTaskDto): Observable<any> {
     return this.http.post(this.url, {
-      task: { dto },
+      task: {
+        title: dto.title,
+        description: dto.description,
+        dueDate: dto.dueDate,
+      },
     });
   }
   //update
-  private updateTaskService(id: number): Observable<any> {
-    return this.http.put(`${this.url}/${id}`, {}); //body to be implemented
+  private updateTaskService(id: number, dto: UpdateTaskDto): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, {
+      task: {
+        id: dto.id,
+        title: dto.title,
+        description: dto.description,
+        dueDate: dto.dueDate,
+      },
+    });
   }
   //delete
   private deleteTaskService(id: number): Observable<any> {
@@ -44,8 +56,8 @@ export class TaskService {
   public createTask(dto: CreateTaskDto): Observable<any> {
     return this.createTaskService(dto);
   }
-  public updateTask(id: number): Observable<any> {
-    return this.updateTaskService(id);
+  public updateTask(id: number, dto: UpdateTaskDto): Observable<any> {
+    return this.updateTaskService(id, dto);
   }
   public deleteTask(id: number): Observable<any> {
     return this.deleteTaskService(id);
